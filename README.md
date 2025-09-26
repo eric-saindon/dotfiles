@@ -1,1 +1,1 @@
-# Eric's dotfiles
+# Eric's Dotfiles
