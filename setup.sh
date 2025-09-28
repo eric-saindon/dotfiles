@@ -1,4 +1,10 @@
+## 03 Setup
 #!/bin/bash
-echo "Hello World" > /tmp/hello
 
-echo "set -o vi" >> ~/.bashrc
+set -euo pipefail
+
+if ! command -v chezmoi >/dev/null; then
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:eric-saindon/dotfiles.git
+fi
+
+exit 0
