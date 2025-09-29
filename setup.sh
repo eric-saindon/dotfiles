@@ -1,5 +1,5 @@
 ## 03 Setup
-#!/bin/bash
+#!/bin/sh
 set -euo pipefail
 
 if ! command -v chezmoi >/dev/null; then
