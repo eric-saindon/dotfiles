@@ -1,3 +1,9 @@
 [tools]
+neovim = "0.10.4"
 bat = "latest"
 chezmoi = "latest"
+fzf = "latest"
+lsd = "latest"
+ripgrep = "latest"
+usage = "latest"
+lazygit = "latest"
