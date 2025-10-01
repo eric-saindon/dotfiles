@@ -9,7 +9,7 @@ SAVEHIST=100000
 # ~~~~~~~~~~~~~~~ Prompt ~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-PURE_GIT_PULL=0
+#PURE_GIT_PULL=0
 
 if [[ "$OSTYPE" == darwin* ]]; then
   fpath+=("$(brew --prefix)/share/zsh/site-functions")
