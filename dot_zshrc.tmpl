@@ -93,9 +93,15 @@ if command -v lsd > /dev/null ; then
   alias la='ls -lathr'
   alias lla='ls -lgha'
   alias lt='ls --tree'
+  alias vi='nvim'
 fi
 
-mise trust ~/.local/share/chezmoi/dot_config/mise/config.toml
+# Trust mise config only if not already trusted (silent)
+if command -v mise >/dev/null 2>&1; then
+    for f in "$HOME/.config/mise/config.toml" "$HOME/.local/share/chezmoi/dot_config/mise/config.toml"; do
+        [ -f "$f" ] && ! mise trust --check "$f" >/dev/null 2>&1 && mise trust "$f" >/dev/null 2>&1
+    done
+fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/ericsaindon/.rd/bin:$PATH"
