@@ -1,8 +1,6 @@
-# .chezmoiexternals/mise.toml.tmpl
 {{ if ne .chezmoi.os "darwin" -}}
-["mise_non_darwin"]
+[".local/bin/mise"]
 type = "file"
-dest = ".local/bin/mise"
 executable = true
-url = "https://github.com/jdx/mise/releases/latest/download/mise-{{ .chezmoi.os }}-{{ .chezmoi.arch }}"
+url = "https://mise.jdx.dev/mise-latest-{{.chezmoi.os}}-{{.chezmoi.arch}}"
 {{- end }}
