@@ -50,6 +50,18 @@ fi
 
 autoload -Uz compinit && compinit
 
+# Enable menu-style completion (highlight + cycle)
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|[._-]=* r:|=*'
+
+# Make Tab trigger completion and Shift-Tab go backward
+bindkey '^I' expand-or-complete
+bindkey '\e[Z' reverse-menu-complete
+
+# Optional: start menu after one Tab and keep cycling
+setopt AUTO_MENU
+setopt MENU_COMPLETE
+
 if command -v fzf > /dev/null ; then
   source <(fzf --zsh)
 fi
