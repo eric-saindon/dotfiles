@@ -39,11 +39,11 @@ export LANG="en_US.UTF-8"
 
 # ~~~~~~~~~~~~~~~ Mise ~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-if command -v mise > /dev/null ; then
-  eval "$($HOME/.local/bin/mise activate zsh)"
+if [[ "$OSTYPE" != darwin* ]]; then
+  if command -v mise > /dev/null ; then
+    eval "$($HOME/.local/bin/mise activate zsh)"
+  fi
 fi
-
 
 # ~~~~~~~~~~~~~~~ Completion ~~~~~~~~~~~~~~~~~~~~~~~~
 
