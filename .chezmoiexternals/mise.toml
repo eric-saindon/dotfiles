@@ -1,4 +1,10 @@
-[".local/bin/mise"]
+# macOS (Apple Silicon): symlink to Homebrew
+["{{ if and (eq .chezmoi.os \"darwin\") (eq .chezmoi.arch \"arm64\") }}.local/bin/mise{{ end }}"]
+type = "symlink"
+link = "/opt/homebrew/bin/mise"
+
+# Non-macOS: download from GitHub Releases
+["{{ if ne .chezmoi.os \"darwin\" }}.local/bin/mise{{ end }}"]
 type = "file"
 executable = true
-url = "https://mise.jdx.dev/mise-latest-{{.chezmoi.os}}-{{.chezmoi.arch}}"
+url = "https://github.com/jdx/mise/releases/latest/download/mise-{{ .chezmoi.os }}-{{ .chezmoi.arch }}"
