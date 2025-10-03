@@ -78,10 +78,23 @@ fi
 
 # ~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~~~
 
+if command -v vim > /dev/null ; then
+  alias v="vim"
+fi
 
-alias v=nvim
-alias gp="git pull"
-alias lg=lazygit
+if command -v kubectl > /dev/null ; then
+  alias k="kubectl"
+  alias kgp="kubectl get pods"
+fi
+
+if command -v lazygit > /dev/null ; then
+  alias lg="lazygit"
+fi
+
+
+if command -v git > /dev/null ; then
+  alias gp="git pull"
+fi
 
 if command -v bat > /dev/null ; then
   alias cat="bat"
@@ -90,12 +103,9 @@ fi
 if command -v lsd > /dev/null ; then
   alias ls="lsd"
   alias ll="ls -lgh"
-  alias la='ls -lathr'
-  alias lla='ls -lgha'
-  alias lt='ls --tree'
-  alias k='kubectl'
-  alias kgp='kubectl get pods'
-  alias v='vim'
+  alias la="ls -lathr"
+  alias lla="ls -lgha"
+  alias lt="ls --tree"
 fi
 
 # Trust mise config only if not already trusted (silent)
