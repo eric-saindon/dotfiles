@@ -25,6 +25,15 @@ prompt pure
 bindkey -v
 export KEYTIMEOUT=1 # make switching between modes faster
 
+# Make Backspace work in vi insert mode (covers both DEL and BS)
+bindkey -M viins '^?' backward-delete-char
+bindkey -M viins '^H' backward-delete-char
+
+# Optional: in vi command mode, make Backspace move left (like 'h')
+bindkey -M vicmd '^?' backward-char
+bindkey -M vicmd '^H' backward-char
+
+
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
